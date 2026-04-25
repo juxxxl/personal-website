@@ -1,0 +1,21 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --main-font: "Manrope", sans-serif;
+    --main-color: #ffb3ff;
+}
+
+/* font-family: "Russo One", sans-serif; */
+
+.main-card {
+
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16x;
+    padding: 20px;
+
+}
+
+.info-card img {
+    
+}
