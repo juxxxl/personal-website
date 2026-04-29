@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
+  <canvas id="starfield" style="position:fixed;top:0;left:0;z-index:-1;"></canvas>
 
   <div class="main-card">
 
@@ -15,7 +18,7 @@
 
       <img src="assets/pfp.jpg" alt="my pfp">
 
-      <p class="self-info">Juxxxl</p>
+      <h3 class="big-text-lol-">Juxxxl</h3>
       <p class="self-info">16ys</p>
       <p class="self-info">he/him</p>
       <p class="self-info">Austria</p>
@@ -86,5 +89,61 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+const canvas = document.getElementById("starfield");
+const ctx = canvas.getContext("2d");
+
+let stars = [];
+
+function makeStars() {
+  stars = Array.from({ length: 150 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    opacity: Math.random(),
+    flickerSpeed: Math.random() * 0.03 + 0.005,
+    flickerDir: Math.random() > 0.5 ? 1 : -1,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+  }));
+}
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  makeStars();
+}
+
+resize();
+window.addEventListener("resize", resize);
+
+function draw() {
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  stars.forEach(star => {
+    star.opacity += star.flickerSpeed * star.flickerDir;
+    if (star.opacity >= 1) { star.opacity = 1; star.flickerDir = -1; }
+    if (star.opacity <= 0) { star.opacity = 0; star.flickerDir = 1; }
+
+    star.x += star.vx;
+    star.y += star.vy;
+
+    if (star.x < 0) star.x = canvas.width;
+    if (star.x > canvas.width) star.x = 0;
+    if (star.y < 0) star.y = canvas.height;
+    if (star.y > canvas.height) star.y = 0;
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${star.opacity})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
 </body>
 </html>
