@@ -30,7 +30,8 @@ body {
     border-radius: 12px;
     border-style: solid;
     border-color: var(--main-color);
-    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);y
+    border: 1px solid rgba(49, 49, 53, 0.3);
+    box-shadow: none;
 }
 
 .info-card {
@@ -46,7 +47,8 @@ body {
     line-height: 1.7;
     border-style: solid;
     border-color: var(--main-color);
-    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+    border: 1px solid rgba(49, 49, 53, 0.3);
+    box-shadow: none;
 }
 
 .info-card img {
@@ -57,10 +59,12 @@ body {
     border-style: solid;
     border-color: var(--main-color);
     transition: box-shadow 0.3s;
+    border: 1px solid rgba(49, 49, 53, 0.3);
 }
 
 .info-card img:hover {
   box-shadow: 0 0 20px var(--main-color);
+  border: 1px solid rgba(49, 49, 53, 0.3);
 }
 
 .socials-card {
@@ -108,7 +112,8 @@ body {
     justify-content: space-between;
     border-style: solid;
     border-color: var(--main-color);
-    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+    border: 1px solid rgba(49, 49, 53, 0.3);
+    box-shadow: none;
 }
 
 .big-text-lol- {
