@@ -18,7 +18,7 @@ body {
 
 .main-card {
     display: grid;
-    grid-template-columns: 310px 850px 300px;
+    grid-template-columns: 310px 500px 300px;
     background: #000000eb;
     gap: 16px;
     padding: 10px;
@@ -89,12 +89,12 @@ body {
 }
 
 .social-link:hover {
-  color: #b13cdf;
+  color: #000000;
   transition: color 0.2s;
 }
 
 .blog-terminal span:hover {
-  color: #b93bf4;
+  color: #747474;
   transition: color 0.2s;
 }
 
@@ -104,7 +104,7 @@ body {
     display: flex;
     padding: 16px;
     width: 100%;
-    height: auto;
+    height: 500px;
     font-size: 24px;
     flex-direction: column;
     justify-content: space-between;
